@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route, Navigate } from 'react-router'
 import Dashboard from '../pages/admin/dashboard'
 import App from '../App'
-import CreateQuiz from '../pages/admin/quiz/createQuiz'
+import CreateQuiz from '../pages/admin/quiz/CreateQuiz'
 
 export default function AppRoutes() {
 	// const { user, loading } = useAuth()
