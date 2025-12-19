@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { doc, onSnapshot, updateDoc, arrayUnion, arrayRemove, collection, getDocs } from 'firebase/firestore'
+import { doc, onSnapshot, updateDoc, arrayUnion, collection } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import { Game, Player, Answer, LeaderboardEntry } from '../types/firebase'
 
@@ -100,7 +100,6 @@ export function useLeaderboard(gameId: string) {
 }
 
 export async function joinGame(gameId: string, playerId: string, playerName: string) {
-  const gameRef = doc(db, 'games', gameId)
   const playersRef = doc(db, 'games', gameId, 'players', 'list')
   
   const newPlayer: Player = {
