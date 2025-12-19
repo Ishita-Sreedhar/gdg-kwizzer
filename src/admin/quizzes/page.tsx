@@ -116,20 +116,7 @@ export default function QuizzesPage() {
                     <Button
                       size="sm"
                       className="quiz-card-delete-button"
-                      onClick={() => {
-                        if (
-                          confirm("Are you sure you want to delete this quiz?")
-                        ) {
-                          firestoreService
-                            .deleteQuiz(quiz.id)
-                            .then(() => {
-                              navigate("/admin/quizzes");
-                            })
-                            .catch((err: Error) => {
-                              alert("Failed to delete quiz: " + err.message);
-                            });
-                        }
-                      }}
+                      onClick={() => handleDelete(quiz.id)}
                     >
                       Delete
                     </Button>

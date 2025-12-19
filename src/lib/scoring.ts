@@ -1,5 +1,5 @@
 import { firestoreService } from './firestore'
-import { Quiz, Game, Player, Answer, LeaderboardEntry } from '../types/firebase'
+import { Quiz, Player, Answer, LeaderboardEntry } from '../types/firebase'
 
 export class ScoringService {
   static async calculateQuestionScores(

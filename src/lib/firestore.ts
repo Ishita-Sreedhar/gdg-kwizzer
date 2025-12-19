@@ -9,12 +9,11 @@ import {
   setDoc,
   query, 
   where, 
-  orderBy, 
   limit,
   serverTimestamp 
 } from 'firebase/firestore'
 import { db } from '../firebase.config'
-import { Quiz, Game, Question, Player, Answer, LeaderboardEntry } from '../types/firebase'
+import { Quiz, Game, Player, Answer, LeaderboardEntry } from '../types/firebase'
 
 function normalizeFirestoreDate(value: unknown): Date | undefined {
   if (!value) return undefined
@@ -199,7 +198,7 @@ export const firestoreService = {
       const playersRef = collection(db, 'games', gameId, 'players')
       const querySnapshot = await getDocs(playersRef)
       const players = querySnapshot.docs
-        .map(doc => ({ ...doc.data() }) as Player)
+        .map(doc => ({ id: doc.id, ...doc.data() }) as Player)
         .map(normalizePlayer)
       console.log('[Firestore] Found', players.length, 'players')
       return players
